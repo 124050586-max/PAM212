@@ -8,5 +8,4 @@ const productos = [
 const nombres = productos
   .filter(producto => producto.precio > 1000)
   .map(producto => producto.nombre);
-
 console.log(nombres);
