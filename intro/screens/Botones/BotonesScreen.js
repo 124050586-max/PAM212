@@ -63,12 +63,12 @@ const styles = StyleSheet.create({
     alignContent: 'center'
   },
   Encabezado: {
-    height: 75,              // altura del encabezado
-    alignSelf: 'stretch',    // ocupa todo el ancho
-    flexDirection: 'row',    // los elementos dentro se organizan horizontalmente
-    justifyContent: 'flex-start', // alineamos al inicio
+    height: 75,            
+    alignSelf: 'stretch',    
+    flexDirection: 'row',    
+    justifyContent: 'flex-start', 
     alignContent: 'center',
-    paddingHorizontal: 18    // espacio lateral
+    paddingHorizontal: 18    
   },
   EncabezadoTitle: {
     fontSize: 19,
