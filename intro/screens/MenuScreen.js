@@ -1,14 +1,14 @@
 import { Text, StyleSheet, View, Button } from 'react-native'
 import React, { useState } from 'react';
-import BotonesScreen from './BotonesScreen';
 import ContadorScreen from './ContadorScreen';
 import TextImput from './TextImput';
 import ScrollView from './ScrollView';
 import ImageBackgroung from './ImageBackgroung';
 import ActivityIndicator from './ActivityIndicator';
 import FlatList from './FlatList';
-import Modal from './Modal'
+import modal from './Modal';
 import BottonSheet from './BottonSheet';
+import BotonesScreen from './Botones/BotonesScreen';
 
 export default function MenuScreen() {
     const [screen,setScreen]=useState('menu');

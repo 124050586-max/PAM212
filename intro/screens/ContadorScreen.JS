@@ -1,55 +1,61 @@
-//1. imports: zona de imports
+// 1. Import: zona de declaraciones
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Button } from 'react-native';
-import React, {useState} from 'react'
+import React, {useState} from 'react';
 
-//2. Main: zona de componentes
+// 2. Main: zona de ejecucion o componentes
 export default function App() {
 
-  const [contador,setContador]=useState(0);
-
+  const [contador, setContador] = useState(0);
   return (
+
     <View style={styles.container}>
 
-      <Text style={styles.texto}>Contador: </Text>
+      <Text style={styles.texto}>Contador:</Text>
       <Text style={styles.texto2}>{contador}</Text>
-      <View style={styles.contenedorbotones}>
-      <Button color="green"title="Incrementar" onPress={()=>setContador(contador+1)}/>
-      <Button color="orange"title="Quitar" onPress={()=>setContador(contador-1)}/>
-      <Button color="brown"title="Reiniciar" onPress={()=>setContador(0)}/>
-      </View>
+
+      <View style={styles.contenedorBotones}>
+      <Button color="green" title='Incrementar' onPress={()=>setContador(contador + 1)}/>
+      <Button color="orange" title='Desincrementar' onPress={()=>setContador(contador - 1)}/>
+      <Button color="brown" title='Reiniciar' onPress={()=>setContador(0)}/>
       <StatusBar style="auto" />
+      </View>
+
     </View>
+
   );
 }
 
-//3. zona de styles
+// 3. Styles: zona de estilos
 const styles = StyleSheet.create({
-  container: {
+  container: 
+  {
     flex: 1,
-    backgroundColor: '#2b0e3eff',
+    backgroundColor: '#de0a0aff',
     alignItems: 'center',
     justifyContent: 'center',
   },
-  texto:{
-    color:'#13e34eff',
-    fontSize:30,
-    fontFamily:'Times New Roman',
-    fontWeight:'bold',
-    fontStyle:'italic',
-    textDecorationLine:'line-through',
-  },
-    texto2:{
-    color:'#00c3ffff',
-    fontSize:40,
-    fontFamily:'Courier',
-    fontWeight:'400',
-    textDecorationLine:'underline',
-  },
-  contenedorbotones:{
-    marginTop:105,
-    flexDirection:'row',
-    gap:20,
 
+  texto:{
+    color: '#2927b9ff',
+    fontSize: 30,
+    fontFamily: 'Times New Roman',
+    fontWeight: 'bold',// negrita
+    fontStyle: 'italic',// letras acostadas
+    textDecorationLine: 'line-through',// subrayado
   },
+
+  texto2:{
+    color: '#15e41cff',
+    fontSize: 40,
+    fontFamily: 'Courier',
+    fontWeight: '400',// negrita
+    textDecorationLine: 'underline',// subrayado
+  },
+
+  contenedorBotones:{
+    marginTop: 15,
+    flexDirection: 'row',
+    gap: 20,
+  }
 });
