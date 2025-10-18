@@ -1,56 +1,82 @@
 import { Text, StyleSheet, View, Button } from 'react-native'
 import React, { useState } from 'react';
 import ContadorScreen from './ContadorScreen';
-import TextImput from './TextImput';
+import TextInputScreen from './TextInputScreen';
 import ScrollView from './ScrollView';
 import ImageBackgroung from './ImageBackgroung';
 import ActivityIndicator from './ActivityIndicator';
 import FlatList from './FlatList';
-import modal from './Modal';
+import  Modal  from './Modal';
 import BottonSheet from './BottonSheet';
 import BotonesScreen from './Botones/BotonesScreen';
 
+
 export default function MenuScreen() {
-    const [screen,setScreen]=useState('menu');
-    switch(screen){
-        case 'contador':
-            return <ContadorScreen/>;
-        case 'botones':
-            return <BotonesScreen/>;
-        case 'EntradaTexto':
-            return <TextImput/>;
-        case 'ScrollView':
-            return <ScrollView/>;
-        case 'ImageBackgroung':
-            return <ImageBackgroung/>;
-        case 'ActivityIndicator':
-            return <ActivityIndicator/>;
-        case 'FlatList':
-            return <FlatList/>;
-        case 'Modal':
-            return <Modal/>;
-        case 'BottonSheet':
-            return <BottonSheet/>;
-        case 'menu':
-            default:
-                 return (
-                     <View>
-                     <Text>Menu de Practicas</Text>
-                     <Button onPress={()=>setScreen('contador')} title='Pract: Contador'/>
-                     <Button onPress={()=>setScreen('botones')} title='Pract: Botones'/>
-                     <Button onPress={()=>setScreen('EntradaTexto')} title='Pract: Entrada de Texto'/>
-                     <Button onPress={()=>setScreen('ScrollView')} title='Pract: ScrollView'/>
-                     <Button onPress={()=>setScreen('ImageBackgroung')} title='Pract: Backgroung'/>
-                     <Button onPress={()=>setScreen('ActivityIndicator')} title='Pract: Indicador de actividad'/>
-                     <Button onPress={()=>setScreen('FlatList')} title='Pract: Lista Plana'/>
-                     <Button onPress={()=>setScreen('Modal')} title='Pract: Modal'/>
-                     <Button onPress={()=>setScreen('BottonSheet')} title='Pract: BottonSheet'/>                    
-                     
-                     </View>
-    )
+  const [screen, setScreen] = useState('menu');
 
-    }
-
+  switch (screen) {
+    case 'contador':
+      return <ContadorScreen />;
+    case 'botones':
+      return <BotonesScreen />;
+    case 'textInput':
+      return <TextInputScreen />;
+    case 'imageBackground':
+      return <ImageBackgroundScreen />;
+    case 'scrollView':
+      return <ScrollViewScreen />;
+    case 'activityIndicator':
+      return <ActivityIndicatorScreen />;
+    case 'flatList':
+      return <FlatListScreen />;
+    case 'modal':
+      return <ModalScreen />;
+    case 'bottomSheet':
+      return <BottomSheetScreen />;
+    case 'botones':
+      return <BotonesScreen />;
+    case 'menu':
+    default:
+      return (
+        <View style={styles.container}>
+          <Text style={styles.texto}>Menú de Prácticas</Text>
+          <View style={styles.contenedorBotones}>
+            <Button color="blue" onPress={() => setScreen('contador')} title="Contador" />
+            <Button color="blue" onPress={() => setScreen('botones')} title="Botones" />
+            <Button color="blue" onPress={() => setScreen('textInput')} title="TextInput" />
+            <Button color="blue" onPress={() => setScreen('imageBackground')} title="ImageBackground" />
+            <Button color="blue" onPress={() => setScreen('scrollView')} title="ScrollView" />
+            <Button color="blue" onPress={() => setScreen('activityIndicator')} title="ActivityIndicator" />
+            <Button color="blue" onPress={() => setScreen('flatList')} title="FlatList" />
+            <Button color="blue" onPress={() => setScreen('modal')} title="Modal" />
+            <Button color="blue" onPress={() => setScreen('bottonSheet')} title="BottonSheet" />
+            <Button color="blue" onPress={() => setScreen('botones')} title="BotonesScreen" />
+          </View>
+        </View>
+      );
+  }
 }
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#0b1139ff',
+    alignItems: 'center',
+    justifyContent: 'center',
+    padding: 20,
+  },
+  contenedorBotones: {
+    marginTop: 15,
+    flexDirection: 'column',
+    gap: 10,
+    width: '100%',
+  },
+  texto: {
+    color: '#00ffeeff',
+    fontSize: 28,
+    fontWeight: 'bold',
+    fontStyle: 'italic',
+    marginBottom: 20,
+    textAlign: 'center',
+  },
+});
