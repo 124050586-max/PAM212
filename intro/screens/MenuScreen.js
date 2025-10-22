@@ -20,8 +20,8 @@ export default function MenuScreen() {
       return <BotonesScreen />;
     case 'textInput':
       return <TextInputScreen />;
-    case 'imageBackground':
-      return <ImageBackground />;
+    case 'ImageBackgroung':
+      return <ImageBackgroung />;
     case 'ScrollView':
       return <ScrollView />;
     case 'activityIndicator':
@@ -43,7 +43,7 @@ export default function MenuScreen() {
             <Button color="blue" onPress={() => setScreen('contador')} title="Contador" />
             <Button color="blue" onPress={() => setScreen('botones')} title="Botones" />
             <Button color="blue" onPress={() => setScreen('textInput')} title="TextInput" />
-            <Button color="blue" onPress={() => setScreen('imageBackground')} title="ImageBackground" />
+            <Button color="blue" onPress={() => setScreen('ImageBackgroung')} title="ImageBackgroung" />
             <Button color="blue" onPress={() => setScreen('ScrollView')} title="ScrollView" />
             <Button color="blue" onPress={() => setScreen('activityIndicator')} title="ActivityIndicator" />
             <Button color="blue" onPress={() => setScreen('flatList')} title="FlatList" />
