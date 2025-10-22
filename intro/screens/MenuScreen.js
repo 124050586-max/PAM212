@@ -6,10 +6,9 @@ import ScrollView from './ScrollView';
 import ImageBackgroung from './ImageBackgroung';
 import ActivityIndicator from './ActivityIndicator';
 import FlatList from './FlatList';
-import  Modal  from './Modal';
+import Modal from './Modal';
 import BottonSheet from './BottonSheet';
 import BotonesScreen from './Botones/BotonesScreen';
-
 
 export default function MenuScreen() {
   const [screen, setScreen] = useState('menu');
@@ -22,15 +21,15 @@ export default function MenuScreen() {
     case 'textInput':
       return <TextInputScreen />;
     case 'imageBackground':
-      return <ImageBackgroundScreen />;
-    case 'scrollView':
-      return <ScrollViewScreen />;
+      return <ImageBackground />;
+    case 'ScrollView':
+      return <ScrollView />;
     case 'activityIndicator':
-      return <ActivityIndicatorScreen />;
+      return <ActivityIndicator />;
     case 'flatList':
-      return <FlatListScreen />;
-    case 'modal':
-      return <ModalScreen />;
+      return <FlatList />;
+    case 'Modal':
+      return <Modal />;
     case 'bottomSheet':
       return <BottomSheetScreen />;
     case 'botones':
@@ -45,10 +44,10 @@ export default function MenuScreen() {
             <Button color="blue" onPress={() => setScreen('botones')} title="Botones" />
             <Button color="blue" onPress={() => setScreen('textInput')} title="TextInput" />
             <Button color="blue" onPress={() => setScreen('imageBackground')} title="ImageBackground" />
-            <Button color="blue" onPress={() => setScreen('scrollView')} title="ScrollView" />
+            <Button color="blue" onPress={() => setScreen('ScrollView')} title="ScrollView" />
             <Button color="blue" onPress={() => setScreen('activityIndicator')} title="ActivityIndicator" />
             <Button color="blue" onPress={() => setScreen('flatList')} title="FlatList" />
-            <Button color="blue" onPress={() => setScreen('modal')} title="Modal" />
+            <Button color="blue" onPress={() => setScreen('Modal')} title="Modal" />
             <Button color="blue" onPress={() => setScreen('bottonSheet')} title="BottonSheet" />
             <Button color="blue" onPress={() => setScreen('botones')} title="BotonesScreen" />
           </View>

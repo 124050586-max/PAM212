@@ -1,26 +1,42 @@
 import React, { useState } from 'react';
-import { Modal, View, Text, Button, StyleSheet } from 'react-native';
+import { Modal, View, Text, Button, StyleSheet, ActivityIndicator } from 'react-native';
 
-export default function App() {
-  
+export default function modal() {
   const [modalVisible, setModalVisible] = useState(false);
+  const [loading, setLoading] = useState(true);
+
+  const abrirModal = () => {
+    setModalVisible(true);
+    setLoading(true);
+    setTimeout(() => setLoading(false), 2000); // 2 segundos de carga
+  };
+
+  const cerrarModal = () => {
+    setModalVisible(false);
+    setLoading(true); // reinicia la carga para la próxima apertura
+  };
 
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Ejemplo del componente Modal</Text>
-
-      <Button title="Mostrar Modal" onPress={() => setModalVisible(true)} />
+      <Button title="Mostrar Modal" onPress={abrirModal} />
 
       <Modal
-        animationType="slide"      // Animación al abrir
-        transparent={true}         // Fondo semi transparente
-        visible={modalVisible}     // Controlado por el estado
-        onRequestClose={() => setModalVisible(false)} // Para Android
+        animationType="slide"
+        transparent={true}
+        visible={modalVisible}
+        onRequestClose={cerrarModal}
+        presentationStyle="pageSheet"
+        statusBarTranslucent={true}
       >
         <View style={styles.modalContainer}>
           <View style={styles.modalView}>
-            <Text style={styles.modalText}>¡Hola! Este es un Modal.</Text>
-            <Button title="Cerrar" onPress={() => setModalVisible(false)} />
+            {loading ? (
+              <ActivityIndicator size="large" color="#0000ff" />
+            ) : (
+              <Text style={styles.modalText}>¡Hola! Este es un Modal.</Text>
+            )}
+            <Button title="Cerrar" onPress={cerrarModal} />
           </View>
         </View>
       </Modal>
@@ -28,7 +44,6 @@ export default function App() {
   );
 }
 
-// Estilos
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -44,7 +59,7 @@ const styles = StyleSheet.create({
   modalContainer: {
     flex: 1,
     justifyContent: 'center',
-    backgroundColor: 'rgba(0,0,0,0.4)', 
+    backgroundColor: 'rgba(0,0,0,0.4)',
   },
   modalView: {
     margin: 20,
@@ -62,3 +77,4 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
 });
+   
