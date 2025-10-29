@@ -10,6 +10,7 @@ import Modal from './Modal';
 import BottonSheet from './BottonSheet';
 import BotonesScreen from './Botones/BotonesScreen';
 
+
 export default function MenuScreen() {
   const [screen, setScreen] = useState('menu');
 
@@ -34,7 +35,6 @@ export default function MenuScreen() {
       return <BottomSheetScreen />;
     case 'botones':
       return <BotonesScreen />;
-    case 'menu':
     default:
       return (
         <View style={styles.container}>
@@ -50,6 +50,7 @@ export default function MenuScreen() {
             <Button color="blue" onPress={() => setScreen('Modal')} title="Modal" />
             <Button color="blue" onPress={() => setScreen('bottonSheet')} title="BottonSheet" />
             <Button color="blue" onPress={() => setScreen('botones')} title="BotonesScreen" />
+
           </View>
         </View>
       );
