@@ -1,42 +1,34 @@
 import React, { useState } from 'react';
-import { Modal, View, Text, Button, StyleSheet, ActivityIndicator } from 'react-native';
+import { Modal, View, Text, Button, StyleSheet, } from 'react-native';
 
-export default function modal() {
-  const [modalVisible, setModalVisible] = useState(false);
-  const [loading, setLoading] = useState(true);
+export default function ModalScreen() {
+  const [modalVisible, setModalVisible] = useState(false); // STATE: controla si modal está abierto
 
   const abrirModal = () => {
     setModalVisible(true);
-    setLoading(true);
-    setTimeout(() => setLoading(false), 2000); // 2 segundos de carga
   };
 
   const cerrarModal = () => {
     setModalVisible(false);
-    setLoading(true); // reinicia la carga para la próxima apertura
   };
 
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Ejemplo del componente Modal</Text>
-      <Button title="Mostrar Modal" onPress={abrirModal} />
 
+      <Button title="Abrir Modal" onPress={abrirModal} /> 
+      
       <Modal
-        animationType="slide"
-        transparent={true}
-        visible={modalVisible}
-        onRequestClose={cerrarModal}
-        presentationStyle="pageSheet"
-        statusBarTranslucent={true}
+        animationType="fade"            // PROP: tipo de animación al abrir slide, fade, none
+        transparent={true}               // PROP: fondo semitransparente
+        visible={modalVisible}           // PROP: controla visibilidad (STATE)
+        onRequestClose={cerrarModal}     // PROP: acción al cerrar (Android)
       >
+
         <View style={styles.modalContainer}>
           <View style={styles.modalView}>
-            {loading ? (
-              <ActivityIndicator size="large" color="#0000ff" />
-            ) : (
-              <Text style={styles.modalText}>¡Hola! Este es un Modal.</Text>
-            )}
-            <Button title="Cerrar" onPress={cerrarModal} />
+            <Text style={styles.modalText}>¡Hola! Este es un Modal.</Text>
+            <Button title="Cerrar" onPress={cerrarModal} /> {/* PROP onPress: cierra modal */}
           </View>
         </View>
       </Modal>
@@ -77,4 +69,3 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
 });
-   
