@@ -9,6 +9,7 @@ import FlatList from './FlatList';
 import Modal from './Modal';
 import BottonSheet from './BottonSheet';
 import BotonesScreen from './Botones/BotonesScreen';
+import ModalScreen from './Modal';
 
 
 export default function MenuScreen() {
@@ -30,9 +31,9 @@ export default function MenuScreen() {
     case 'flatList':
       return <FlatList />;
     case 'Modal':
-      return <Modal />;
-    case 'bottomSheet':
-      return <BottomSheetScreen />;
+      return <ModalScreen />;
+    case 'BottonSheet':
+      return <BottonSheet />;
     case 'botones':
       return <BotonesScreen />;
     default:
@@ -48,7 +49,7 @@ export default function MenuScreen() {
             <Button color="blue" onPress={() => setScreen('activityIndicator')} title="ActivityIndicator" />
             <Button color="blue" onPress={() => setScreen('flatList')} title="FlatList" />
             <Button color="blue" onPress={() => setScreen('Modal')} title="Modal" />
-            <Button color="blue" onPress={() => setScreen('bottonSheet')} title="BottonSheet" />
+            <Button color="blue" onPress={() => setScreen('BottonSheet')} title="BottonSheet" />
             <Button color="blue" onPress={() => setScreen('botones')} title="BotonesScreen" />
 
           </View>
