@@ -14,12 +14,13 @@ const ArticleCard = ({ article }) => {
         { text: 'Guardar', onPress: () => console.log('Guardado') },
         { text: 'Cerrar', style: 'cancel' },
       ],
-      {canselable: true}
+      { cancelable: true } // ✅ corregido: "cancelable"
     );
   };
+
   return (
-    <View style={styles.container}>
-    <Image source={{ uri: article.image }} style={styles.image} />
+    <View style={styles.card}>
+      <Image source={article.image} style={styles.image} />
       <Text style={styles.title}>{article.title}</Text>
       <Text style={styles.date}>{article.date}</Text>
       <Text style={styles.summary}>{article.summary}</Text>
@@ -40,20 +41,50 @@ const Section = ({ title, articles }) => (
 export default function App() {
   const categories = {
     Deportes: [
-      { title: 'Final de la Liga MX', date: '07/11/2025', summary: 'El América vence al Tigres en un partido epico.',image: "./messi adios.jpeg"},
-      { title: 'Messi se retira', date: '06/11/2025', summary: 'El astro argentino anuncia su retiro definitivo.', image: "./messi adios.jpeg" },
+      { 
+        title: 'Final de la Liga MX', 
+        date: '07/11/2025', 
+        summary: 'El América vence al Tigres en un partido épico.', 
+        image: require('../assets/messi_adios.jpeg') 
+      },
+      { 
+        title: 'Messi se retira', 
+        date: '06/11/2025', 
+        summary: 'El astro argentino anuncia su retiro definitivo.', 
+        image: require('../assets/messi_adios.jpeg') 
+      },
     ],
     Entretenimiento: [
-      { title: 'Crash lanza nuevo álbum', date: '07/11/2025', summary: 'El rapero mexicano sorprende con letras profundas.', image:"./crash.jpeg" },
-      { title: 'Premios Ariel 2025', date: '06/11/2025', summary: '“La frontera invisible” gana mejor película.', image:"./images (1).jpeg" },
+      { 
+        title: 'Crash lanza nuevo álbum', 
+        date: '07/11/2025', 
+        summary: 'El rapero mexicano sorprende con letras profundas.', 
+        image: require('../assets/crash.jpeg') 
+      },
+      { 
+        title: 'Premios Ariel 2025', 
+        date: '06/11/2025', 
+        summary: '“La frontera invisible” gana mejor película.', 
+        image: require('../assets/images1.jpeg') 
+      },
     ],
     Tecnologia: [
-      { title: 'Nuevo iPhone 17', date: '07/11/2025', summary: 'Apple presenta su modelo más avanzado hasta ahora.', image:"./iphone 17.jpeg"},
-      { title: 'IA revoluciona la medicina', date: '06/11/2025', summary: 'Nuevos algoritmos permiten diagnósticos más precisos.', image:"./iA.jpeg" },
+      { 
+        title: 'Nuevo iPhone 17', 
+        date: '07/11/2025', 
+        summary: 'Apple presenta su modelo más avanzado hasta ahora.', 
+        image: require('../assets/iphone17.jpeg') 
+      },
+      { 
+        title: 'IA revoluciona la medicina', 
+        date: '06/11/2025', 
+        summary: 'Nuevos algoritmos permiten diagnósticos más precisos.', 
+        image: require('../assets/IA.jpeg') 
+      },
     ],
   };
 
- return (
+  return (
     <ScrollView style={styles.container}>
       <View style={styles.header}>
         <Text style={styles.headerText}>elaldoprogramandonolesabe</Text>
@@ -64,9 +95,10 @@ export default function App() {
     </ScrollView>
   );
 }
+
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: '#fff' },
-  header: { padding: 20, backgroundColor: '#001effff' },
+  header: { padding: 20, backgroundColor: '#001eff' },
   headerText: { color: '#fff', fontSize: 24, fontWeight: 'bold', textAlign: 'center' },
   section: { padding: 10 },
   sectionTitle: { fontSize: 20, fontWeight: 'bold', marginBottom: 10 },
